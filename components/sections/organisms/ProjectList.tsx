@@ -13,6 +13,8 @@ import { projectType } from "../../../types/ProjectType"
 export default function ProjectList({ projects }: { projects: projectType[] }) {
     const [isOpen, setIsOpen] = useState(false);
 
+    if (!projects || projects.length === 0) return null;
+
     return (
         <div>
             <button

@@ -11,7 +11,13 @@ export default async function Profile() {
     }`
   );
 
-  if (!profile) return <div>No profile found.</div>;
+  if (!profile || profile.length === 0) {
+    return (
+    <section className="flex justify-center items-center h-[60vh] border-b border-neutral-300 dark:border-neutral-700">
+      <div>No profile found.</div>
+    </section>
+    );
+  }
 
   return (
     <section className="flex flex-col md:flex-row justify-evenly items-center h-[60vh] border-b border-neutral-300 dark:border-neutral-700">
@@ -24,11 +30,11 @@ export default async function Profile() {
       <div className="order-1 md:order-2 w-full md:w-auto flex justify-center md:justify-end">
         {profile.image && (
           <Image
-            src={urlFor(profile.image).width(400).url()}
+            src={urlFor(profile.image).width(500).url()}
             alt={profile.name}
-            width={400}
-            height={400}
-            className="rounded-xl w-full h-auto md:max-w-none md:w-auto md:h-[300px] mx-4"
+            width={500}
+            height={500}
+            className="rounded-xl w-auto h-auto md:max-w-none md:w-auto md:h-[500px] mx-4"
             priority
           />
         )}
