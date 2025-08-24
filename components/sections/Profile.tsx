@@ -13,14 +13,14 @@ export default async function Profile() {
 
   if (!profile || profile.length === 0) {
     return (
-    <section className="flex justify-center items-center h-[60vh] border-b border-neutral-300 dark:border-neutral-700">
+    <section className="flex justify-center items-center h-[60vh] border-b border-neutral-300 dark:border-neutral-800">
       <div>No profile found.</div>
     </section>
     );
   }
 
   return (
-    <section className="flex flex-col md:flex-row justify-evenly items-center h-[60vh] border-b border-neutral-300 dark:border-neutral-700">
+    <section className="flex flex-col md:flex-row justify-evenly items-center h-[60vh] border-b border-neutral-300 dark:border-neutral-800">
       <div className="order-2 md:order-1 w-full md:w-auto flex justify-center">
         <div className="space-y-2 text-left mx-4">
           <div className="text-xl">{profile.bio}</div>

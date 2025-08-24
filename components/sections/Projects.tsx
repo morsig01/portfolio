@@ -24,7 +24,7 @@ export default async function Projects() {
 
   if (!project || project.length === 0) {
     return (
-      <div className="border-b border-neutral-300 dark:border-neutral-700">
+      <div className="border-b border-neutral-300 dark:border-neutral-800">
         <div className="py-12 m-auto max-w-[90vw] flex flex-col ">
           <div className="text-4xl pb-12">Project Library</div>
           <div className="flex items-center justify-center min-h-[60vh]">No projects yet.</div>
@@ -34,14 +34,14 @@ export default async function Projects() {
   }
 
   return (
-    <div className="border-b border-neutral-300 dark:border-neutral-700">
+    <div className="border-b border-neutral-300 dark:border-neutral-800">
       <div className=" py-12 m-auto max-w-[90vw] flex flex-col ">
         <div className="text-4xl pb-12">Project Library</div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pb-6">
           {project.map((project: projectType, i: any) => (
             <div
               key={i}
-              className=" hover:shadow-sm rounded-sm flex flex-col border text-left border-neutral-300 dark:border-neutral-700"
+              className=" hover:shadow-sm rounded-sm flex flex-col border text-left border-neutral-300 dark:border-neutral-800"
             >
               {project.image && (
                 <Image
@@ -60,7 +60,7 @@ export default async function Projects() {
                     <Link
                       href={project.github}
                       target="_blank"
-                      className="hover:text-blue-500 hover:shadow-sm w-full transition rounded border border-neutral-300 dark:border-neutral-700 p-2 text-center flex items-center justify-center"
+                      className="hover:text-blue-500 hover:shadow-sm w-full transition rounded border border-neutral-300 dark:border-neutral-800 p-2 text-center flex items-center justify-center"
                     >
                       <IoLogoGithub />
                     </Link>
@@ -69,7 +69,7 @@ export default async function Projects() {
                     <Link
                       href={project.site}
                       target="_blank"
-                      className="hover:text-blue-500 w-full hover:shadow-sm transition rounded border border-neutral-300 dark:border-neutral-700 p-2 text-center flex items-center justify-center"
+                      className="hover:text-blue-500 w-full hover:shadow-sm transition rounded border border-neutral-300 dark:border-neutral-800 p-2 text-center flex items-center justify-center"
                     >
                       <HiOutlineExternalLink />
                     </Link>
