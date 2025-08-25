@@ -1,8 +1,11 @@
 import { quoteCountQuery, randomQuoteQuery } from '@/sanity/queries/query';
 import { client } from "../../sanity/lib/client";
 import { quoteType } from '@/types/QuoteType';
+import { unstable_noStore as noStore } from 'next/cache';
+
 
 export default async function Quotes() {
+    noStore();
     const count: number = await client.fetch(quoteCountQuery);
     if (!count) {
         return (
