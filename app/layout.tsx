@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { client } from "@/sanity/lib/client";
-import { SanityClient } from "sanity";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

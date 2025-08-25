@@ -2,7 +2,7 @@ import React from 'react'
 
 const Navbar = () => {
   return (
-    <div className='w-full h-[8vh] flex items-center justify-center border-b border-neutral-300 dark:border-neutral-800'>
+  <div className='hidden md:flex md:w-full md:h-[8vh] md:items-center md:justify-center md:border-b md:border-neutral-300 md:dark:border-neutral-700'>
       portfolio
     </div>
   )
