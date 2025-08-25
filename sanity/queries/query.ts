@@ -29,3 +29,12 @@ export const profileQuery = `*[_type == "profile"][0]{
   },
   bio
 }`;
+
+export const quoteCountQuery = `count(*[_type == "quote"])`;
+
+export const randomQuoteQuery = `
+  *[_type == "quote"][$idx]{
+    quote,
+    origin
+  }
+`;

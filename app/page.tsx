@@ -2,12 +2,14 @@ import Footer from "@/components/sections/Footer";
 import Profile from "../components/sections/Profile";
 import Navbar from "@/components/sections/Navbar";
 import Projects from "@/components/sections/Projects";
+import Quotes from "@/components/sections/Quotes";
 
 export default function Home() {
   return (
     <main>
       <Navbar/>
       <Profile />
+      <Quotes />
       <Projects />
       <Footer />
     </main>

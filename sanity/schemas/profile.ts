@@ -18,12 +18,6 @@ const profile = defineType({
       description: 'Whats you position at work.'
     }),
     defineField({
-      name: 'bio',
-      title: 'Bio',
-      type: 'text',
-      description: 'Write something you value with your work. This will be quoted like einstein said it.'
-    }),
-    defineField({
       name: 'image',
       title: 'Image',
       type: 'image',
