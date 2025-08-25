@@ -3,7 +3,7 @@ import { client } from "../../sanity/lib/client";
 import imageUrlBuilder from "@sanity/image-url";
 import Link from "next/link";
 
-import ProjectList from "./organisms/ProjectList";
+import ProjectList from "../organisms/ProjectList";
 
 import { previewProjectsQuery, allProjectsQuery } from "../../sanity/queries/query";
 import { projectType } from "@/types/ProjectType";

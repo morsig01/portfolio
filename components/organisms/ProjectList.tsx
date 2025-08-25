@@ -8,7 +8,7 @@ import { IoLogoGithub } from 'react-icons/io5';
 import { HiOutlineExternalLink } from 'react-icons/hi';
 import { AiOutlineClose } from 'react-icons/ai';
 
-import { projectType } from "../../../types/ProjectType"
+import { projectType } from "../../types/ProjectType"
 
 export default function ProjectList({ projects }: { projects: projectType[] }) {
     const [isOpen, setIsOpen] = useState(false);
