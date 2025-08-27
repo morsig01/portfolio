@@ -14,13 +14,26 @@ const Project = defineType({
     defineField({
       name: 'role',
       title: 'Role',
-      type: 'string',
+      type: 'array',
       description: 'What role did you have on this project?',
+      of: [{ type: 'string' }],
       options: {
         list: [
           { title: "Developer", value: "Developer" },
           { title: "Design", value: "Design" },
           { title: "Tester", value: "Tester" }
+        ]
+      }
+    }),
+    defineField({
+      name: 'type',
+      title: 'Project Type',
+      type: 'string',
+      description: 'What role did you have on this project?',
+      options: {
+        list: [
+          { title: "Personal", value: "Personal" },
+          { title: "Crayon", value: "Crayon" },
         ]
       }
     }),
@@ -37,10 +50,10 @@ const Project = defineType({
       description: 'Think of this as the thumbnail.'
     }),
     defineField({
-        name: 'github',
-        title: 'GitHub Link',
-        type: 'string',
-        description: 'Copy the url from the github repo.'
+      name: 'github',
+      title: 'GitHub Link',
+      type: 'string',
+      description: 'Copy the url from the github repo.'
     }),
     defineField({
       name: 'site',

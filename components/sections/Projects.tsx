@@ -5,29 +5,32 @@ import Link from "next/link";
 
 import ProjectList from "../organisms/ProjectList";
 
-import { previewProjectsQuery, allProjectsQuery } from "../../sanity/queries/query";
+import {
+  previewProjectsQuery,
+  allProjectsQuery,
+} from "../../sanity/queries/query";
 import { projectType } from "@/types/ProjectType";
 
-import { IoLogoGithub } from 'react-icons/io5';
-import { HiOutlineExternalLink } from 'react-icons/hi';
-
+import { IoLogoGithub } from "react-icons/io5";
+import { HiOutlineExternalLink } from "react-icons/hi";
 
 const builder = imageUrlBuilder(client);
 function urlFor(source: any) {
   return builder.image(source);
 }
 
-const project = await client.fetch(previewProjectsQuery)
-const projectlist = await client.fetch(allProjectsQuery)
+const project = await client.fetch(previewProjectsQuery);
+const projectlist = await client.fetch(allProjectsQuery);
 
 export default async function Projects() {
-
   if (!project || project.length === 0) {
     return (
       <div className="border-b border-neutral-300 dark:border-neutral-700">
         <div className="py-12 m-auto max-w-[90vw] flex flex-col ">
           <div className="text-4xl pb-12">Project Library</div>
-          <div className="flex items-center justify-center min-h-[60vh]">No projects yet.</div>
+          <div className="flex items-center justify-center min-h-[60vh]">
+            No projects yet.
+          </div>
         </div>
       </div>
     );
@@ -53,7 +56,35 @@ export default async function Projects() {
                 />
               )}
               <div className="p-4 flex flex-col gap-y-4">
-                <h2 className="text-xl font-bold">{project.title}</h2>
+                <div className="flex flex-row items-center gap-4 w-full">
+                  <h2 className="text-2xl font-bold">{project.title}</h2>
+                  <div
+                    className={`border px-3 py-1 rounded-full max-w-fit flex items-center justify-center
+                      ${
+                        project.type === "Personal"
+                          ? "border-blue-500"
+                          : "border-orange-500"
+                      }`}
+                  >
+                    {project.type}
+                  </div>
+                </div>
+                <div className="flex gap-2 flex-wrap">
+                  {Array.isArray(project.role) ? (
+                    project.role.map((role: string, i: number) => (
+                      <div
+                        key={i}
+                        className="border border-neutral-300 dark:border-neutral-700 px-3 py-1 rounded-full flex items-center justify-center"
+                      >
+                        {role}
+                      </div>
+                    ))
+                  ) : (
+                    <div className="border border-neutral-300 dark:border-neutral-700 px-3 py-1 rounded-full flex items-center justify-center">
+                      {project.role}
+                    </div>
+                  )}
+                </div>
                 <p className="text-neutral-400">{project.about}</p>
                 <div className="flex gap-2 lg:w-full">
                   {project.github && (

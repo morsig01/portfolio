@@ -2,6 +2,7 @@
 export const previewProjectsQuery = `*[_type == "project"][0...4]{
   title,
   role,
+  type,
   about,
   image,
   github,
@@ -11,6 +12,7 @@ export const previewProjectsQuery = `*[_type == "project"][0...4]{
 export const allProjectsQuery = `*[_type == "project"]{
   title,
   role,
+  type,
   about,
   image,
   github,
