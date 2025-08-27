@@ -50,6 +50,20 @@ export default function ProjectList({ projects }: { projects: projectType[] }) {
                           {p.title}
                         </h3>
                         <div className="flex gap-2">
+
+                          <div
+                            className={`px-2 py-1 rounded-full flex items-center justify-center border 
+                                ${
+                                  p.type === "Personal"
+                                    ? "border-blue-500"
+                                    : "border-orange-500"
+                                }`}
+                          >
+                            {p.type}
+                          </div>
+
+                          <div className="border-r border-neutral-300 dark:border-neutral-700"></div>
+                        
                           {Array.isArray(p.role) ? (
                             p.role.map((role: string, i: number) => (
                               <div
@@ -64,16 +78,7 @@ export default function ProjectList({ projects }: { projects: projectType[] }) {
                               {p.role}
                             </div>
                           )}
-                          <div
-                            className={`px-2 py-1 rounded-full flex items-center justify-center border 
-                                ${
-                                  p.type === "Personal"
-                                    ? "border-blue-500"
-                                    : "border-orange-500"
-                                }`}
-                          >
-                            {p.type}
-                          </div>
+                          
                         </div>
                       </div>
                       <p className="max-w-[70vw]">{p.about}</p>

@@ -1,12 +1,6 @@
 import { NextResponse } from 'next/server';
 import { client } from '@/sanity/lib/client';
-
-const allQuotesQuery = `
-  *[_type == "quote"]{
-    quote,
-    origin
-  }
-`;
+import { allQuotesQuery } from '@/sanity/queries/query';
 
 export async function GET() {
   try {

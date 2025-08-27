@@ -34,8 +34,13 @@ export const profileQuery = `*[_type == "profile"][0]{
 
 export const quoteCountQuery = `count(*[_type == "quote"])`;
 
-export const randomQuoteQuery = `
-  *[_type == "quote"][$idx]{
+export const randomQuoteQuery = `*[_type == "quote"][$idx]{
+    quote,
+    origin
+  }
+`;
+
+export const allQuotesQuery = `*[_type == "quote"]{
     quote,
     origin
   }
