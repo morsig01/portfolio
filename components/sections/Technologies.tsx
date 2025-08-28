@@ -2,23 +2,23 @@
 
 import { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
-import { client } from "../../sanity/lib/client";
-import { technologiesQuery } from '@/sanity/queries/query';
 import { technologyType } from "@/types/TechnologyType";
 import { urlFor } from "@/sanity/lib/image";
 
 export default function Technologies() {
   const [technologies, setTechnologies] = useState<technologyType[]>([]);
   useEffect(() => {
-    client.fetch(technologiesQuery).then((data) => {
-      setTechnologies(data);
-    });
+    fetch("/api/technologies")
+      .then((res) => res.json())
+      .then((data) => {
+        setTechnologies(data);
+      });
   }, []);
 
   return (
     <div className="w-full border-b border-neutral-300 dark:border-neutral-700 py-4">
       {technologies.length === 0 ? (
-        <div>Loading...</div>
+        <div className="flex justify-center items-center">Loading...</div>
       ) : (
         <Marquee gradient={false} speed={40} pauseOnHover={true}>
           {[...technologies, ...technologies, ...technologies].map((tech, idx) => (
