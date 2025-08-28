@@ -19,19 +19,23 @@ export default function ProjectList({ projects }: { projects: projectType[] }) {
     <div>
       <button
         onClick={() => setIsOpen(true)}
-        className="w-full p-6 border border-neutral-300 dark:border-neutral-700 hover:bg-blue-500 hover:cursor-pointer transition rounded-sm"
+        className="w-full p-6 border hover:bg-blue-500 hover:cursor-pointer transition rounded-sm" style={{ borderColor: 'var(--border-color)' }}
       >
         All Projects
       </button>
 
       {isOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
-          <div className="bg-background border border-neutral-300 dark:border-neutral-700 rounded-none md:rounded-xl w-full h-full md:max-w-7xl md:w-full md:max-h-[80vh] flex flex-col shadow-lg relative md:h-auto md:mx-20">
-            <div className="sticky top-0 z-10 bg-background border-b border-neutral-300 dark:border-neutral-700 flex items-center justify-between px-6 py-4 rounded-t-none md:rounded-t-xl">
+          <div className="border rounded-none md:rounded-xl w-full h-full md:max-w-7xl md:w-full md:max-h-[80vh] flex flex-col shadow-lg relative md:h-auto md:mx-20" style={{ borderColor: 'var(--border-color)', backgroundColor: 'var(--background)'}}>
+            <div
+            className="sticky top-0 z-10 bg-background border-b flex items-center justify-between px-6 py-4 rounded-t-none md:rounded-t-xl"
+            style={{ borderColor: 'var(--border-color)' }}
+            >
               <h2 className="text-2xl font-bold">All Projects</h2>
               <button
                 onClick={() => setIsOpen(false)}
-                className="p-2 rounded-full border border-neutral-300 dark:border-neutral-700 hover:bg-neutral-100 hover:dark:bg-neutral-800 transition"
+                className="p-2 rounded-full border hover:bg-neutral-100 hover:dark:bg-neutral-800 transition"
+                style={{ borderColor: 'var(--border-color)' }}
                 aria-label="Close"
               >
                 <AiOutlineClose size={24} />
@@ -42,7 +46,8 @@ export default function ProjectList({ projects }: { projects: projectType[] }) {
                 {projects.map((p, idx) => (
                   <li
                     key={idx}
-                    className="border border-neutral-300 dark:border-neutral-700 rounded-lg p-4 shadow-sm hover:shadow transition flex items-center justify-between"
+                    className="border rounded-lg p-4 shadow-sm hover:shadow transition flex items-center justify-between"
+                    style={{ borderColor: 'var(--border-color)' }}
                   >
                     <div className="flex flex-col colums-1 gap-2">
                       <div className="flex flex-col gap-4 md:flex-row">
@@ -62,19 +67,20 @@ export default function ProjectList({ projects }: { projects: projectType[] }) {
                             {p.type}
                           </div>
 
-                          <div className="border-r border-neutral-300 dark:border-neutral-700"></div>
+                          <div className="border-r" style={{ borderColor: 'var(--border-color)' }}></div>
                         
                           {Array.isArray(p.role) ? (
                             p.role.map((role: string, i: number) => (
                               <div
                                 key={i}
-                                className="border border-neutral-300 dark:border-neutral-700 px-2 py-1 rounded-full flex items-center justify-center"
+                                className="border px-2 py-1 rounded-full flex items-center justify-center"
+                                style={{ borderColor: 'var(--border-color)' }}
                               >
                                 {role}
                               </div>
                             ))
                           ) : (
-                            <div className="border border-neutral-300 dark:border-neutral-700 px-2 py-1 rounded-full flex items-center justify-center">
+                            <div className="border px-2 py-1 rounded-full flex items-center justify-center" style={{ borderColor: 'var(--border-color)' }}>
                               {p.role}
                             </div>
                           )}
@@ -88,7 +94,8 @@ export default function ProjectList({ projects }: { projects: projectType[] }) {
                         <Link
                           href={p.github}
                           target="_blank"
-                          className="hover:text-blue-500 hover:shadow-sm transition rounded border border-neutral-200 dark:border-neutral-700 p-2"
+                          className="hover:text-blue-500 hover:shadow-sm transition rounded border p-2"
+                          style={{ borderColor: 'var(--border-color)' }}
                         >
                           <IoLogoGithub />
                         </Link>
@@ -97,7 +104,8 @@ export default function ProjectList({ projects }: { projects: projectType[] }) {
                         <Link
                           href={p.site}
                           target="_blank"
-                          className="hover:text-blue-500 hover:shadow-sm transition rounded border border-neutral-200 dark:border-neutral-700 p-2"
+                          className="hover:text-blue-500 hover:shadow-sm transition rounded border p-2"
+                          style={{ borderColor: 'var(--border-color)' }}
                         >
                           <HiOutlineExternalLink />
                         </Link>

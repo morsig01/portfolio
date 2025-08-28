@@ -9,7 +9,9 @@ export default async function Quotes() {
     const count: number = await client.fetch(quoteCountQuery);
     if (!count) {
         return (
-            <div className="w-full flex items-center justify-center py-20 border-b border-neutral-300 dark:border-neutral-700">
+            <div className="w-full flex items-center justify-center py-20 border-b"
+            style={{ borderColor: 'var(--border-color)' }}
+            >
                 <div className="flex items-center justify-center min-h-[60vh]">No quotes.</div>
             </div>
         );

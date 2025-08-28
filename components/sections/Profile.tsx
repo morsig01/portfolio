@@ -12,48 +12,54 @@ export default async function Profile() {
   
   if (!profile) {
     return (
-      <section className="flex justify-center items-center py-16 border-b border-neutral-300 dark:border-neutral-700">
+      <div className="flex justify-center items-center py-16 border-b" style={{ borderColor: 'var(--border-color)' }}>
         <div>No profile found.</div>
-      </section>
+      </div>
     );
   }
 
   return (
-    <section className="flex flex-col md:flex-row justify-start md:justify-evenly items-center gap-6 md:gap-12 px-4 pt-4 md:pt-16 pb-16 min-h-[75vh] md:min-h-0 border-b border-neutral-300 dark:border-neutral-700">
-      <div className="order-2 md:order-1 w-full md:w-auto flex-1 md:flex-none flex items-center justify-center md:justify-start">
-        <div className="space-y-2 text-left">
-          <div className="text-xl">{profile.position}</div>
-          <div className="text-7xl font-bold">{profile.name}</div>
+    <>
+      {/* Spacer to offset fixed Navbar height */}
+      <div className="block h-[8vh] w-full" />
+      <div
+        className="flex flex-col justify-start items-center gap-6 px-4 pt-4 pb-16 min-h-[75vh] border-b md:flex-row md:justify-evenly md:pt-16 md:min-h-0"
+        style={{ borderColor: 'var(--border-color)' }}
+      >
+        <div className="order-2 w-full flex-1 flex items-center justify-center md:order-1 md:w-auto md:flex-none md:justify-start">
+          <div className="space-y-2 text-left">
+            <div className="text-xl">{profile.position}</div>
+            <div className="text-7xl font-bold">{profile.name}</div>
+          </div>
+        </div>
+        <div className="order-1 w-full flex justify-center md:order-2 md:w-auto md:justify-end">
+          {profile.image && (
+            <>
+              <div className="relative w-full aspect-square md:hidden">
+                <Image
+                  src={urlFor(profile.image).width(800).url()}
+                  alt={profile.name}
+                  fill
+                  sizes="100vw"
+                  className="rounded-2xl object-cover object-center"
+                  priority
+                />
+              </div>
+              <div className="hidden md:block">
+                <Image
+                  src={urlFor(profile.image).width(800).url()}
+                  alt={profile.name}
+                  width={520}
+                  height={520}
+                  className="rounded-xl w-[520px] h-auto object-cover object-center lg:w-[640px]"
+                  sizes="(min-width: 1024px) 640px, 520px"
+                  priority
+                />
+              </div>
+            </>
+          )}
         </div>
       </div>
-      <div className="order-1 md:order-2 w-full md:w-auto flex justify-center md:justify-end">
-        {profile.image && (
-          <>
-            <div className="relative w-full aspect-square md:hidden">
-              <Image
-                src={urlFor(profile.image).width(800).url()}
-                alt={profile.name}
-                fill
-                sizes="100vw"
-                className="rounded-xl object-cover object-center"
-                priority
-              />
-            </div>
-            <div className="hidden md:block">
-              <Image
-                src={urlFor(profile.image).width(800).url()}
-                alt={profile.name}
-                width={520}
-                height={520}
-                className="rounded-xl w-[520px] h-auto object-cover object-center lg:w-[640px]"
-                sizes="(min-width: 1024px) 640px, 520px"
-                priority
-              />
-            </div>
-          </>
-        )}
-      </div>
-      
-    </section>
+    </>
   );
 }

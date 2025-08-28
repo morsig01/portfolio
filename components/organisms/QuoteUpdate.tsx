@@ -17,7 +17,9 @@ export default function QuotesClient({ initialQuote }: { initialQuote: QuoteType
   };
 
   return (
-    <div className="w-full flex flex-col gap-4 text-center items-center justify-center py-20 md:py-40 px-10 border-b border-neutral-300 dark:border-neutral-700">
+    <div className="w-full flex flex-col gap-4 text-center items-center justify-center py-20 md:py-40 px-10 border-b"
+    style={{ borderColor: 'var(--border-color)' }}
+    >
       <div
         className='p-6 cursor-pointer rounded-xl hover:shadow select-none transition'
         onClick={fetchQuote}
