@@ -45,3 +45,10 @@ export const allQuotesQuery = `*[_type == "quote"]{
     origin
   }
 `;
+
+export const technologiesQuery = `*[_type == "technologies"]{
+    technology,
+    image,
+    link
+  }
+`;
