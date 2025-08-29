@@ -20,8 +20,8 @@ export default async function Profile() {
 
   return (
     <>
-      {/* Spacer to offset fixed Navbar height */}
-      <div className="block h-[8vh] w-full" />
+      <div className="hidden md:block h-[8vh] w-full" />
+      <div className="md:hidden block h-[10vh] w-full" />
       <div
         className="flex flex-col justify-start items-center gap-6 px-4 pt-4 pb-16 min-h-[75vh] border-b md:flex-row md:justify-evenly md:pt-16 md:min-h-0"
         style={{ borderColor: 'var(--border-color)' }}
