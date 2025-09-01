@@ -20,7 +20,7 @@ function urlFor(source: any) {
 const project = await client.fetch(previewProjectsQuery);
 const projectlist = await client.fetch(allProjectsQuery);
 
-export default async function Projects() {
+export default async function HomeProjects() {
   if (!project || project.length === 0) {
     return (
       <div className="border-b" style={{ borderColor: 'var(--border-color)' }}>

@@ -34,7 +34,7 @@ export default function ProjectList({ projects }: { projects: projectType[] }) {
               <h2 className="text-2xl font-bold">All Projects</h2>
               <button
                 onClick={() => setIsOpen(false)}
-                className="p-2 rounded-full border hover:bg-neutral-100 hover:dark:bg-neutral-800 transition"
+                className="p-2 rounded-full border cursor-pointer transition"
                 style={{ borderColor: 'var(--border-color)' }}
                 aria-label="Close"
               >
