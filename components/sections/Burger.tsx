@@ -8,10 +8,31 @@ type BurgerProps = {
   onClose: () => void;
 };
 
+
 export const Burger = ({ isOpen, onClose }: BurgerProps) => {
-  if (!isOpen) return null;
+  const [mounted, setMounted] = React.useState(false);
+  const [visible, setVisible] = React.useState(false);
+
+  React.useEffect(() => {
+    if (isOpen) {
+      setMounted(true);
+      // Allow next tick for transition
+      setTimeout(() => setVisible(true), 10);
+    } else if (mounted) {
+      setVisible(false);
+    }
+  }, [isOpen]);
+
+  const handleTransitionEnd = () => {
+    if (!visible) setMounted(false);
+  };
+
+  if (!mounted) return null;
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-[100]">
+    <div
+      className={`fixed inset-0 flex items-center justify-center z-[100] transition-opacity duration-300 ${visible ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+      onTransitionEnd={handleTransitionEnd}
+    >
       <div className="w-full h-full flex flex-col relative" style={{backgroundColor: 'var(--background)' }}>
         <div className="flex flex-col items-center justify-center h-full relative">
           <button
