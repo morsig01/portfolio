@@ -13,7 +13,7 @@ const Navbar = () => {
   return (
     <>
       <div
-        className='z-50 fixed hidden md:flex md:w-full md:h-[8vh] md:items-center md:justify-between md:border-b px-8'
+        className='z-50 fixed hidden md:flex md:w-full md:h-[8vh] lg:h-[6vh] md:items-center md:justify-between md:border-b px-8'
         style={{ borderColor: 'var(--border-color)', backgroundColor: 'var(--background)' }}
       >
         <MenuButton onClick={() => setMenuOpen(true)} />

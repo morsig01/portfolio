@@ -1,4 +1,3 @@
-import Footer from "@/components/sections/Footer";
 import Profile from "../components/sections/Profile";
 import Projects from "@/components/sections/Projects";
 import Quotes from "@/components/sections/Quotes";
@@ -11,7 +10,6 @@ export default function Home() {
       <Quotes />
       <Technologies />
       <Projects />
-      <Footer />
     </main>
   );
 }

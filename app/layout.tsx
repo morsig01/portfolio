@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Source_Sans_3 } from "next/font/google";
-
-import Navbar from "@/components/sections/Navbar";
+import { Source_Sans_3 } from "next/font/google";
 
 import "./globals.css";
 import { Providers } from "./providers";
-import MobileNavBar from "@/components/MobileNavBar";
+import LayoutWrapper from "./LayoutWrapper";
 
 const sourceSans = Source_Sans_3({
   variable: "--font-source-sans",
@@ -24,16 +22,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${sourceSans.variable} antialiased`}
-      >
+      <body>
         <Providers>
-                <Navbar/>
-                <MobileNavBar />
-          
-          {children}
+          <LayoutWrapper>{children}</LayoutWrapper>
         </Providers>
       </body>
     </html>
-  );
+  )
 }
+
