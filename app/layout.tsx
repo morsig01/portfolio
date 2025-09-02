@@ -1,18 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Source_Sans_3 } from "next/font/google";
 
+import Navbar from "@/components/sections/Navbar";
+
 import "./globals.css";
 import { Providers } from "./providers";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import MobileNavBar from "@/components/MobileNavBar";
 
 const sourceSans = Source_Sans_3({
   variable: "--font-source-sans",
@@ -35,6 +28,9 @@ export default function RootLayout({
         className={`${sourceSans.variable} antialiased`}
       >
         <Providers>
+                <Navbar/>
+                <MobileNavBar />
+          
           {children}
         </Providers>
       </body>

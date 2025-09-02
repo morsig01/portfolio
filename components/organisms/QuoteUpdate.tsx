@@ -21,14 +21,14 @@ export default function QuotesClient({ initialQuote }: { initialQuote: QuoteType
     style={{ borderColor: 'var(--border-color)' }}
     >
       <div
-        className='p-6 cursor-pointer rounded-xl hover:shadow select-none transition'
+        className='cursor-pointer rounded-xl transition'
         onClick={fetchQuote}
         title="Click to shuffle quote"
       >
         <div className='text-4xl'>
           "{quote.quote}"
         </div>
-        {quote.origin && <div className='text-xl'>- {quote.origin}</div>}
+        {quote.origin && <div className='text-xl mt-2'>- {quote.origin}</div>}
         <div className="mt-4 text-neutral-400 text-sm">(Click to shuffle)</div>
       </div>
     </div>
