@@ -1,25 +1,12 @@
-"use client";
-
-import React, { useEffect, useState } from "react";
 import { client } from "../../sanity/lib/client";
 import { profileQuery } from "../../sanity/queries/query";
 import { urlFor } from "../../sanity/lib/image";
-import { AiOutlineInfoCircle } from "react-icons/ai";
 import Iridescence from "../../components/blocks/Backgrounds/Iridiscence";
-import { IoArrowDown } from "react-icons/io5";
 import { HiOutlineArrowCircleDown } from "react-icons/hi";
 import { BiBook } from "react-icons/bi";
 
-const About = () => {
-  const [profile, setProfile] = useState<any>(null);
-
-  useEffect(() => {
-    const fetchProfile = async () => {
-      const data = await client.fetch(profileQuery);
-      setProfile(data);
-    };
-    fetchProfile();
-  }, []);
+export default async function About() {
+  const profile = await client.fetch(profileQuery);
 
   return (
     <>
@@ -70,6 +57,4 @@ const About = () => {
       </div>
     </>
   );
-};
-
-export default About;
+}
