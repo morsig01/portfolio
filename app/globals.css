@@ -1,23 +1,43 @@
 @import "tailwindcss";
 
 :root {
+  --selected-title-bg: #e4e4e4; /* a little lighter for light mode */
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #000;
   --border-color: #d4d4d8;
   --outline-color: #d4d4d8;
+  --hover-bg: #d5d5d5; /* a little darker than selected title for light mode */
+  --content-bg: #f6f6f6; /* a little lighter for light mode */
 }
 
 .dark {
+  --selected-title-bg: #232323; /* a little lighter for dark mode */
   --background: #0a0a0a;
   --foreground: #ededed;
   --border-color: #404040;
   --outline-color: #404040;
+  --hover-bg: #202020; /* a little darker than selected title for dark mode */
+  --content-bg: #181818; /* a little lighter for dark mode */
 }
 
+
 body {
+/* Utility for selected title background */
+.selected-title-bg {
+  background: var(--selected-title-bg);
+}
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
   border-color: var(--border-color);
   outline-color: var(--outline-color);
+}
+
+/* Utility for content background */
+.content-bg {
+  background: var(--content-bg);
+}
+
+.hover-bg:hover {
+  background: var(--hover-bg);
 }

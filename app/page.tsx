@@ -7,8 +7,8 @@ export default function Home() {
   return (
     <main>
       <Profile />
-      <Quotes />
       <Technologies />
+      <Quotes />
       <Projects />
     </main>
   );

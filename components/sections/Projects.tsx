@@ -38,7 +38,7 @@ export default async function HomeProjects() {
     <div className="border-b" style={{ borderColor: 'var(--border-color)' }}>
       <div className=" py-12 m-auto max-w-[90vw] flex flex-col ">
         <div className="text-4xl pb-12">Project Library</div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {project.map((proj: projectType, i: number) => {
             // If only 1 card, make it full width
             if (project.length === 1 && i === 0) {

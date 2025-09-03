@@ -51,6 +51,9 @@ interface IridescenceProps {
   speed?: number;
   amplitude?: number;
   mouseReact?: boolean;
+  responsive?: boolean;
+  pixelRatio?: number;
+  className?: string;
 }
 
 export default function Iridescence({
@@ -58,10 +61,14 @@ export default function Iridescence({
   speed = 1.0,
   amplitude = 0.1,
   mouseReact = true,
+  responsive = true,
+  pixelRatio = 1,
+  className = "w-full h-full",
   ...rest
 }: IridescenceProps) {
   const ctnDom = useRef<HTMLDivElement>(null);
   const mousePos = useRef({ x: 0.5, y: 0.5 });
+  const resizeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     if (!ctnDom.current) return;
@@ -73,17 +80,38 @@ export default function Iridescence({
     let program: Program;
 
     function resize() {
-      const scale = 1;
-      renderer.setSize(ctn.offsetWidth * scale, ctn.offsetHeight * scale);
+      // Get device pixel ratio for responsive scaling
+      const dpr = responsive ? Math.min(window.devicePixelRatio * pixelRatio, 2) : pixelRatio;
+      const rect = ctn.getBoundingClientRect();
+      const width = rect.width * dpr;
+      const height = rect.height * dpr;
+      
+      renderer.setSize(width, height);
+      
+      // Ensure canvas takes full container width/height
+      gl.canvas.style.width = '100%';
+      gl.canvas.style.height = '100%';
+      gl.canvas.style.display = 'block';
+      gl.canvas.style.minWidth = '0';
+      gl.canvas.style.maxWidth = 'none';
+      
       if (program) {
         program.uniforms.uResolution.value = new Color(
-          gl.canvas.width,
-          gl.canvas.height,
-          gl.canvas.width / gl.canvas.height
+          width,
+          height,
+          width / height
         );
       }
     }
-    window.addEventListener('resize', resize, false);
+
+    function debouncedResize() {
+      if (resizeTimeoutRef.current) {
+        clearTimeout(resizeTimeoutRef.current);
+      }
+      resizeTimeoutRef.current = setTimeout(resize, 100);
+    }
+
+    window.addEventListener('resize', debouncedResize, { passive: true });
     resize();
 
     const geometry = new Triangle(gl);
@@ -127,14 +155,32 @@ export default function Iridescence({
 
     return () => {
       cancelAnimationFrame(animateId);
-      window.removeEventListener('resize', resize);
+      if (resizeTimeoutRef.current) {
+        clearTimeout(resizeTimeoutRef.current);
+      }
+      window.removeEventListener('resize', debouncedResize);
       if (mouseReact) {
         ctn.removeEventListener('mousemove', handleMouseMove);
       }
-      ctn.removeChild(gl.canvas);
+      if (ctn.contains(gl.canvas)) {
+        ctn.removeChild(gl.canvas);
+      }
       gl.getExtension('WEBGL_lose_context')?.loseContext();
     };
-  }, [color, speed, amplitude, mouseReact]);
+  }, [color, speed, amplitude, mouseReact, responsive, pixelRatio]);
 
-  return <div ref={ctnDom} className="w-full h-full" {...rest} />;
+  return (
+    <div 
+      ref={ctnDom} 
+      className={className} 
+      style={{ 
+        minWidth: 0, 
+        minHeight: 0, 
+        width: '100%', 
+        height: '100%',
+        overflow: 'hidden'
+      }} 
+      {...rest} 
+    />
+  );
 }

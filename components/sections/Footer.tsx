@@ -8,7 +8,7 @@ import { FiMail } from 'react-icons/fi';
 const Footer = () => {
   return (
     <>
-    <div className="max-w-full h-[70vh] border-t md:h-[40vh] flex items-center justify-center" style={{ borderColor: 'var(--border-color)' }}>
+    <div className="max-w-full h-[400px] border-t md:h-[300px] flex items-center justify-center" style={{ borderColor: 'var(--border-color)' }}>
       <div className="flex flex-col gap-12 md:flex-row">
         <a
           href="https://www.linkedin.com/in/morgan-sigland-b2993134b/"

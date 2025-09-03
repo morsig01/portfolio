@@ -28,7 +28,7 @@ export default function ProjectCard({
               alt={project.title}
               width={600}
               height={400}
-              className="w-full h-full rounded-t-sm md:rounded-l-sm md:rounded-tr-none object-cover max-h-[220px] md:max-h-[400px]"
+              className="w-full h-full rounded-t-sm md:rounded-l-sm md:rounded-tr-none object-cover"
               style={{
                 minHeight: "220px",
                 maxHeight: "400px",
@@ -79,20 +79,20 @@ export default function ProjectCard({
               <Link
                 href={project.github}
                 target="_blank"
-                className="hover:text-blue-500 hover:shadow-sm w-full transition rounded border p-2 text-center flex items-center justify-center"
+                className="hover:text-blue-500 hover:shadow-sm w-full transition rounded border p-3 text-center flex items-center justify-center"
                 style={{ borderColor: "var(--border-color)" }}
               >
-                <IoLogoGithub />
+                <IoLogoGithub size={20} />
               </Link>
             )}
             {project.site && (
               <Link
                 href={project.site}
                 target="_blank"
-                className="hover:text-blue-500 w-full hover:shadow-sm transition rounded border p-2 text-center flex items-center justify-center"
+                className="hover:text-blue-500 w-full hover:shadow-sm transition rounded border p-3 text-center flex items-center justify-center"
                 style={{ borderColor: "var(--border-color)" }}
               >
-                <HiOutlineExternalLink />
+                <HiOutlineExternalLink size={20} />
               </Link>
             )}
           </div>
@@ -103,7 +103,7 @@ export default function ProjectCard({
   // Default vertical card
   return (
     <div
-      className="hover:shadow-sm rounded-sm flex flex-col border text-left"
+      className="hover:shadow-sm rounded-sm flex flex-col justify-between border text-left"
       style={{ borderColor: "var(--border-color)" }}
     >
       {project.image && (
@@ -156,20 +156,20 @@ export default function ProjectCard({
             <Link
               href={project.github}
               target="_blank"
-              className="hover:text-blue-500 hover:shadow-sm w-full transition rounded border p-2 text-center flex items-center justify-center"
+              className="hover:text-blue-500 hover:shadow-sm w-full transition rounded border p-4 md:p-2 text-center flex items-center justify-center"
               style={{ borderColor: "var(--border-color)" }}
             >
-              <IoLogoGithub />
+              <IoLogoGithub size={24} />
             </Link>
           )}
           {project.site && (
             <Link
               href={project.site}
               target="_blank"
-              className="hover:text-blue-500 w-full hover:shadow-sm transition rounded border p-2 text-center flex items-center justify-center"
+              className="hover:text-blue-500 w-full hover:shadow-sm transition rounded border p-4 md:p-2 text-center flex items-center justify-center"
               style={{ borderColor: "var(--border-color)" }}
             >
-              <HiOutlineExternalLink />
+              <HiOutlineExternalLink size={24}/>
             </Link>
           )}
         </div>

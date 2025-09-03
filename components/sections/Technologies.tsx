@@ -16,8 +16,8 @@ export default function Technologies() {
   }, []);
 
   return (
-    <div className="w-full border-b py-4"
-    style={{ borderColor: 'var(--border-color)' }}
+    <div className="w-full border-b py-4 content-bg"
+      style={{ borderColor: 'var(--border-color)' }}
     >
       {technologies.length === 0 ? (
         <div className="flex justify-center items-center">Loading...</div>
