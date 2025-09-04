@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --selected-title-bg: #e4e4e4; /* a little lighter for light mode */
+  --selected-title-bg: #eeeeee; /* a little lighter for light mode */
   --background: #ffffff;
   --foreground: #000;
   --border-color: #d4d4d8;

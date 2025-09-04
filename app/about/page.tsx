@@ -6,6 +6,7 @@ import { HiOutlineArrowCircleDown } from "react-icons/hi";
 import Plasma from "@/components/blocks/Backgrounds/Plasma";
 import Accordion from "../../components/Accordion";
 import Silk from "@/components/blocks/Backgrounds/Silk";
+import AboutMobile from "../../components/sections/AboutMobile";
 
 export default async function About() {
   const profile = await client.fetch(profileQuery);
@@ -45,8 +46,11 @@ export default async function About() {
 
   return (
     <>
-      <div className="min-h-[70px] h-[10vh] md:h-[8vh] lg:h-[6vh] w-full" />
-      <div className="min-h-fit w-full flex flex-row">
+      {/* Mobile About Component */}
+      <AboutMobile />
+      
+      <div className="hidden md:block min-h-[70px] h-[10vh] md:h-[8vh] lg:h-[6vh] w-full" />
+      <div className="hidden md:flex min-h-fit w-full flex-row">
         {/* Left column */}
         <div className="flex-1 flex flex-col">
           {/* Top left: About */}
@@ -101,7 +105,7 @@ export default async function About() {
 
       {/* Values */}
       <div
-        className="flex w-full h-auto border-t"
+        className="hidden md:flex w-full h-auto border-t"
         style={{ borderColor: "var(--border-color)" }}
       >
         <div className="lg:h-[700px] w-3/4 py-12 flex flex-col gap-6">
