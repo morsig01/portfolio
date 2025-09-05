@@ -18,7 +18,7 @@ export default function ProjectCard({
   if (horizontal) {
     return (
       <div
-        className="hover:shadow-sm flex flex-col md:flex-row border text-left"
+        className="flex flex-col md:flex-row border text-left"
         style={{ borderColor: "var(--border-color)" }}
       >
         {project.image && (
@@ -37,7 +37,7 @@ export default function ProjectCard({
             />
           </div>
         )}
-        <div className="flex flex-col w-full border-l" style={{ borderColor: 'var(--border-color)' }}>
+        <div className="flex flex-col w-full md:border-l" style={{ borderColor: 'var(--border-color)' }}>
           {/* Header and tags section */}
           <div className="p-4 flex flex-col gap-2 border-b" style={{ borderColor: 'var(--border-color)' }}>
             <div className="flex flex-row items-center gap-4 w-full">
@@ -76,7 +76,7 @@ export default function ProjectCard({
           </div>
           
           {/* Centered description */}
-          <div className="flex-1 flex items-center px-4 md:px-6 pb-4">
+          <div className="flex-1 flex items-center p-4">
             <p className="text-neutral-400">{project.about}</p>
           </div>
           
@@ -110,7 +110,7 @@ export default function ProjectCard({
   // Default vertical card
   return (
     <div
-      className="hover:shadow-sm flex flex-col justify-between border text-left"
+      className="hover:shadow-sm flex flex-col border text-left"
       style={{ borderColor: "var(--border-color)" }}
     >
       {project.image && (
@@ -162,7 +162,7 @@ export default function ProjectCard({
         </div>
         
         {/* Centered description */}
-        <div className="flex-1 flex items-center p-4 min-h-0">
+        <div className="flex-1 flex items-center justify-center p-4">
           <p className="text-neutral-400">{project.about}</p>
         </div>
         

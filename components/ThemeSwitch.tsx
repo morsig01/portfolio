@@ -14,7 +14,7 @@ export default function ThemeSwitch() {
   if (!mounted)
     return (
       <div
-        className="p-3 border rounded-lg"
+        className="md:h-full md:w-full w-12 h-12 md:p-0"
         style={{ borderColor: "var(--border-color)" }}
       >
         <Image
@@ -32,8 +32,7 @@ export default function ThemeSwitch() {
   if (resolvedTheme === "dark") {
     return (
       <div
-        className="p-4 md:p-3 border rounded-full md:rounded-lg cursor-pointer hover:shadow"
-        style={{ borderColor: "var(--border-color)", backgroundColor: 'var(--background)' }}
+        className="flex items-center justify-center md:w-full md:h-full w-16 h-16 md:p-0 transition duration-300 hover:rotate-360"
         onClick={() => setTheme("light")}
       >
         <FaAdjust size={24}/>
@@ -44,11 +43,10 @@ export default function ThemeSwitch() {
   if (resolvedTheme === "light") {
     return (
       <div
-        className="p-4 md:p-3 border rounded-full md:rounded-lg cursor-pointer hover:shadow"
-        style={{ borderColor: "var(--border-color)", backgroundColor: 'var(--background)' }}
+        className="flex items-center justify-center md:w-full md:h-full w-16 h-16 md:p-0 transition duration-300 hover:rotate-360"
         onClick={() => setTheme("dark")}
       >
-        <FaAdjust size={24} />
+        <FaAdjust size={24}/>
       </div>
     );
   }

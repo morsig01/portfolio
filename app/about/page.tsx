@@ -3,7 +3,6 @@ import { profileQuery } from "../../sanity/queries/query";
 import { urlFor } from "../../sanity/lib/image";
 import Iridescence from "../../components/blocks/Backgrounds/Iridiscence";
 import { HiOutlineArrowCircleDown } from "react-icons/hi";
-import Plasma from "@/components/blocks/Backgrounds/Plasma";
 import Accordion from "../../components/Accordion";
 import Silk from "@/components/blocks/Backgrounds/Silk";
 import AboutMobile from "../../components/sections/AboutMobile";

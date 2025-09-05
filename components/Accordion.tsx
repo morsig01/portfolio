@@ -29,18 +29,20 @@ const Accordion: React.FC<AccordionProps> = ({ items }) => {
             aria-expanded={openIndex === idx}
             style={{ cursor: 'pointer', borderColor: 'var(--border-color)' }}
           >
-            <span>{item.title}</span>
+            <span className="text-left flex-1 pr-4">{item.title}</span>
             {openIndex === idx ? (
-              <FiMinus className="ml-4 transition-transform duration-300" size={24} />
+              <FiMinus className="transition-transform duration-300 flex-shrink-0" size={24} />
             ) : (
-              <FiPlus className="ml-4 transition-transform duration-300" size={24} />
+              <FiPlus className="transition-transform duration-300 flex-shrink-0" size={24} />
             )}
           </button>
           <div
-            className={`accordion-content p-4 text-lg transition-all duration-300 content-bg${openIndex === idx ? ' open' : ' max-h-0 overflow-hidden'}`}
+            className={`accordion-content p-4 text-lg !text-left transition-all duration-300 content-bg${openIndex === idx ? ' open' : ' max-h-0 overflow-hidden'}`}
             style={{ display: openIndex === idx ? 'block' : 'none' }}
           >
-            {item.content}
+            <div className="text-left">
+              {item.content}
+            </div>
           </div>
         </div>
       ))}

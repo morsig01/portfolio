@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 
-import { HiMenuAlt2 } from "react-icons/hi";
+import { BiMenuAltLeft, BiMenu } from "react-icons/bi";
 
 
 type MenuButtonProps = {
@@ -8,16 +8,26 @@ type MenuButtonProps = {
 };
 
 const MenuButton = ({ onClick }: MenuButtonProps) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <div
-      className="p-4 md:p-2 border rounded-full md:rounded-lg cursor-pointer hover:shadow"
-      style={{
-        borderColor: "var(--border-color)",
-        backgroundColor: "var(--background)",
-      }}
+      className="flex items-center justify-center md:w-full md:h-full w-16 h-16 md:p-0 relative transition duration-300"
       onClick={onClick}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
-      <HiMenuAlt2 size={24} />
+      <BiMenuAltLeft 
+        size={30} 
+        className="absolute"
+      />
+      <BiMenu 
+        size={30} 
+        className="absolute transition-all duration-300"
+        style={{
+          color: isHovered ? 'var(--foreground)' : 'transparent'
+        }}
+      />
     </div>
   );
 };

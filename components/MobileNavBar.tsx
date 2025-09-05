@@ -18,9 +18,13 @@ export default function MobileNavBar() {
           outlineColor: "var(--outline-color)",
         }}
       >
-        <MenuButton onClick={() => setMenuOpen(true)} />
+        <div className="rounded-full border" style={{ borderColor: "var(--border-color)" }}>
+          <MenuButton onClick={() => setMenuOpen(true)} />
+        </div>
         <span>portfolio</span>
-        <ThemeSwitch />
+        <div className="rounded-full border" style={{ borderColor: "var(--border-color)" }}>
+          <ThemeSwitch />
+        </div>
       </div>
       <Burger isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
     </div>
