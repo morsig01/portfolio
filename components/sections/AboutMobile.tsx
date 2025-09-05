@@ -60,28 +60,32 @@ export default async function AboutMobile() {
                 className="w-full h-full"
               />
             </div>
-            
+
             <div className="flex flex-col w-full text-right justify-end p-8 z-10">
               <div className="w-full flex flex-col items-end">
                 <div className="w-fit">
-                <span className="text-8xl font-bold">About</span>
-                <div className="flex w-full justify-between items-center">
-                  <HiOutlineArrowCircleDown size={90} />
-                  <span className="text-8xl font-bold">Me</span>
-                </div>
+                  <span className="text-8xl font-bold">About</span>
+                  <div className="flex w-full justify-between items-center">
+                    <HiOutlineArrowCircleDown size={90} />
+                    <span className="text-8xl font-bold">Me</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Text and Image Section */}
-          <div className="flex flex-col gap-6 p-6 border-b" style={{ borderColor: "var(--border-color)" }}>
+          <div
+            className="flex flex-col gap-6 p-6 border-b"
+            style={{ borderColor: "var(--border-color)" }}
+          >
             {/* About Text */}
-            <div className="px-4">
+            <div className="px-2">
               <p className="text-2xl leading-relaxed">
-                Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet
-                consectetur adipiscing elit quisque faucibus ex. Adipiscing elit
-                quisque faucibus ex sapien vitae pellentesque.
+                I'm a passionate web developer who believes in creating meaningful
+                digital experiences through thoughtful design and clean code.
+                Every project is an opportunity to blend creativity with
+                functionality.
               </p>
             </div>
 

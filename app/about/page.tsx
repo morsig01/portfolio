@@ -91,12 +91,12 @@ export default async function About() {
               <HiOutlineArrowCircleDown size={300} />
             </div>
           </div>
-          {/* Bottom right: Placeholder */}
+          {/* Bottom right: Bio */}
           <div className="flex items-center justify-center h-full px-6">
             <span className="text-4xl">
-              Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet
-              consectetur adipiscing elit quisque faucibus ex. Adipiscing elit
-              quisque faucibus ex sapien vitae pellentesque.
+              Passionate web developer who believes in creating meaningful 
+              digital experiences through thoughtful design and clean code. Every 
+              project is an opportunity to blend creativity with functionality.
             </span>
           </div>
         </div>

@@ -5,7 +5,7 @@ import Link from "next/link";
 const NotFound = () => {
   return (
     <>
-      <div className="w-full h-screen">
+      <div className="w-full h-screen" data-not-found="true">
         <div className="relative w-full h-screen bg-[url('/Jellyfish.jpg')] bg-cover bg-center flex items-center justify-center">
           <div className="absolute inset-0 bg-black/70 z-0" />
           <span
