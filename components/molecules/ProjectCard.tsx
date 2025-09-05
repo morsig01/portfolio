@@ -18,7 +18,7 @@ export default function ProjectCard({
   if (horizontal) {
     return (
       <div
-        className="hover:shadow-sm rounded-sm flex flex-col md:flex-row border text-left"
+        className="hover:shadow-sm flex flex-col md:flex-row border text-left"
         style={{ borderColor: "var(--border-color)" }}
       >
         {project.image && (
@@ -28,7 +28,7 @@ export default function ProjectCard({
               alt={project.title}
               width={600}
               height={400}
-              className="w-full h-full rounded-t-sm md:rounded-l-sm md:rounded-tr-none object-cover"
+              className="w-full h-full object-cover"
               style={{
                 minHeight: "220px",
                 maxHeight: "400px",
@@ -37,15 +37,16 @@ export default function ProjectCard({
             />
           </div>
         )}
-        <div className="p-4 flex flex-col gap-y-4 w-full justify-between">
-          <div className="flex flex-col gap-2">
+        <div className="flex flex-col w-full border-l" style={{ borderColor: 'var(--border-color)' }}>
+          {/* Header and tags section */}
+          <div className="p-4 flex flex-col gap-2 border-b" style={{ borderColor: 'var(--border-color)' }}>
             <div className="flex flex-row items-center gap-4 w-full">
               <h2 className="text-2xl font-bold">{project.title}</h2>
               <div
                 className={`border px-3 py-1 rounded-full max-w-fit flex items-center justify-center
                 ${
                   project.type === "Personal"
-                    ? "border-blue-500"
+                    ? "border-blue-700"
                     : "border-orange-500"
                 }`}
               >
@@ -73,13 +74,19 @@ export default function ProjectCard({
               )}
             </div>
           </div>
-          <p className="text-neutral-400">{project.about}</p>
-          <div className="flex gap-2 lg:w-full">
+          
+          {/* Centered description */}
+          <div className="flex-1 flex items-center px-4 md:px-6 pb-4">
+            <p className="text-neutral-400">{project.about}</p>
+          </div>
+          
+          {/* Links section extending to edges */}
+          <div className="flex border-t" style={{ borderColor: 'var(--border-color)' }}>
             {project.github && (
               <Link
                 href={project.github}
                 target="_blank"
-                className="hover:text-blue-500 hover:shadow-sm w-full transition rounded border p-3 text-center flex items-center justify-center"
+                className={`hover:text-blue-700 hover:shadow-sm w-full transition p-3 text-center flex items-center justify-center ${project.github && project.site ? 'border-r' : ''}`}
                 style={{ borderColor: "var(--border-color)" }}
               >
                 <IoLogoGithub size={20} />
@@ -89,7 +96,7 @@ export default function ProjectCard({
               <Link
                 href={project.site}
                 target="_blank"
-                className="hover:text-blue-500 w-full hover:shadow-sm transition rounded border p-3 text-center flex items-center justify-center"
+                className="hover:text-blue-700 w-full hover:shadow-sm transition p-3 text-center flex items-center justify-center"
                 style={{ borderColor: "var(--border-color)" }}
               >
                 <HiOutlineExternalLink size={20} />
@@ -103,7 +110,7 @@ export default function ProjectCard({
   // Default vertical card
   return (
     <div
-      className="hover:shadow-sm rounded-sm flex flex-col justify-between border text-left"
+      className="hover:shadow-sm flex flex-col justify-between border text-left"
       style={{ borderColor: "var(--border-color)" }}
     >
       {project.image && (
@@ -112,64 +119,73 @@ export default function ProjectCard({
           alt={project.title}
           width={600}
           height={400}
-          className="w-full rounded-t-sm max-h-[220px] md:max-h-[400px] object-cover"
+          className="w-full max-h-[220px] md:max-h-[400px] object-cover"
           style={{ minHeight: "220px", maxHeight: "400px", objectFit: "cover" }}
         />
       )}
-      <div className="p-4 flex flex-col gap-y-4">
-        <div className="flex flex-row items-center gap-4 w-full">
-          <h2 className="text-2xl font-bold">{project.title}</h2>
-          <div
-            className={`border px-3 py-1 rounded-full max-w-fit flex items-center justify-center
-              ${
-                project.type === "Personal"
-                  ? "border-blue-500"
-                  : "border-orange-500"
-              }`}
-          >
-            {project.type}
+      <div className="flex flex-col flex-1 min-h-0">
+        {/* Header and tags section */}
+        <div className="p-4 flex flex-col gap-y-2 flex-shrink-0 border-b border-t" style={{ borderColor: "var(--border-color)" }}>
+          <div className="flex flex-row items-center gap-4 w-full">
+            <h2 className="text-2xl font-bold">{project.title}</h2>
+            <div
+              className={`border px-3 py-1 rounded-full max-w-fit flex items-center justify-center
+                ${
+                  project.type === "Personal"
+                    ? "border-blue-700"
+                    : "border-orange-500"
+                }`}
+            >
+              {project.type}
+            </div>
           </div>
-        </div>
-        <div className="flex gap-2 flex-wrap">
-          {Array.isArray(project.role) ? (
-            project.role.map((role: string, i: number) => (
+          <div className="flex gap-2 flex-wrap">
+            {Array.isArray(project.role) ? (
+              project.role.map((role: string, i: number) => (
+                <div
+                  key={i}
+                  className="border px-3 py-1 rounded-full flex items-center justify-center"
+                  style={{ borderColor: "var(--border-color)" }}
+                >
+                  {role}
+                </div>
+              ))
+            ) : (
               <div
-                key={i}
                 className="border px-3 py-1 rounded-full flex items-center justify-center"
                 style={{ borderColor: "var(--border-color)" }}
               >
-                {role}
+                {project.role}
               </div>
-            ))
-          ) : (
-            <div
-              className="border px-3 py-1 rounded-full flex items-center justify-center"
-              style={{ borderColor: "var(--border-color)" }}
-            >
-              {project.role}
-            </div>
-          )}
+            )}
+          </div>
         </div>
-        <p className="text-neutral-400">{project.about}</p>
-        <div className="flex gap-2 lg:w-full">
+        
+        {/* Centered description */}
+        <div className="flex-1 flex items-center p-4 min-h-0">
+          <p className="text-neutral-400">{project.about}</p>
+        </div>
+        
+        {/* Links section extending to edges */}
+        <div className="flex border-t flex-shrink-0" style={{ borderColor: 'var(--border-color)' }}>
           {project.github && (
             <Link
               href={project.github}
               target="_blank"
-              className="hover:text-blue-500 hover:shadow-sm w-full transition rounded border p-4 md:p-2 text-center flex items-center justify-center"
+              className={`hover:text-blue-700 hover:shadow-sm w-full transition py-4 text-center flex items-center justify-center ${project.github && project.site ? 'border-r' : ''}`}
               style={{ borderColor: "var(--border-color)" }}
             >
-              <IoLogoGithub size={24} />
+              <IoLogoGithub size={20} />
             </Link>
           )}
           {project.site && (
             <Link
               href={project.site}
               target="_blank"
-              className="hover:text-blue-500 w-full hover:shadow-sm transition rounded border p-4 md:p-2 text-center flex items-center justify-center"
+              className="hover:text-blue-700 w-full hover:shadow-sm transition py-4 text-center flex items-center justify-center"
               style={{ borderColor: "var(--border-color)" }}
             >
-              <HiOutlineExternalLink size={24}/>
+              <HiOutlineExternalLink size={20}/>
             </Link>
           )}
         </div>
