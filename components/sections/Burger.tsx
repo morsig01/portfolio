@@ -43,8 +43,8 @@ export const Burger = ({ isOpen, onClose }: BurgerProps) => {
             <AiOutlineClose size={30} />
           </button>
           <nav className="flex flex-col gap-8 text-3xl items-center justify-center h-full w-full" style={{marginTop: '4.5rem'}}>
-            <a href="/" onClick={onClose} className="hover:border-b-2">/home</a>
-            <a href="/about" onClick={onClose} className="hover:border-b-2">/about</a>
+            <Link href="/" onClick={onClose} className="hover:border-b-2">/home</Link>
+            <Link href="/about" onClick={onClose} className="hover:border-b-2">/about</Link>
           </nav>
         </div>
       </div>
