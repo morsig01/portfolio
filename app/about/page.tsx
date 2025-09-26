@@ -47,7 +47,7 @@ export default async function About() {
     <>
       {/* Mobile About Component */}
       <AboutMobile />
-      
+
       <div className="hidden md:block min-h-[70px] h-[10vh] md:h-[8vh] lg:h-[6vh] w-full" />
       <div className="hidden md:flex min-h-fit w-full flex-row">
         {/* Left column */}
@@ -81,7 +81,7 @@ export default async function About() {
               speed={0.6}
               responsive={true}
               pixelRatio={1}
-              className="w-full h-full"
+              className="w-full h-full min-h-[300px]"
             />
           </div>
           {/* Middle right: Me + Arrow */}
@@ -94,9 +94,10 @@ export default async function About() {
           {/* Bottom right: Bio */}
           <div className="flex items-center justify-center h-full px-6">
             <span className="text-4xl">
-              Passionate web developer who believes in creating meaningful 
-              digital experiences through thoughtful design and clean code. Every 
-              project is an opportunity to blend creativity with functionality.
+              Passionate web developer who believes in creating meaningful
+              digital experiences through thoughtful design and clean code.
+              Every project is an opportunity to blend creativity with
+              functionality.
             </span>
           </div>
         </div>
